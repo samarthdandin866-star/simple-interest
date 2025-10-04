@@ -1,24 +1,26 @@
+# Program to calculate Simple Interest and Compound Interest
+
 def simple_interest(p, r, t):
-    return (p * r * t) / 100.0
+    """Calculate Simple Interest"""
+    return (p * r * t) / 100
 
-# Example usage
-if __name__ == "__main__":
-    p = float(input("Principal (P): "))
-    r = float(input("Rate % (R): "))
-    t = float(input("Time years (T): "))
-    si = simple_interest(p, r, t)
-    print(f"Simple Interest = {si:.2f}")
-    print(f"Amount after {t} years = {p + si:.2f}")
 def compound_interest(p, r, t):
-    a = p * (1 + r / 100) ** t
-    ci = a - p
-    return ci, a
+    """Calculate Compound Interest"""
+    amount = p * (1 + r / 100) ** t
+    return amount - p
 
-# Example usage
-p = float(input("Principal (P): "))
-r = float(input("Rate % (R): "))
-t = float(input("Time (years): "))
+# --- Main Program ---
+p = float(input("Enter Principal Amount (P): "))
+r = float(input("Enter Rate of Interest (R): "))
+t = float(input("Enter Time (in years) (T): "))
 
-ci, a = compound_interest(p, r, t)
+# Calculate interests
+si = simple_interest(p, r, t)
+ci = compound_interest(p, r, t)
+
+# Display results
+print("\n----- Results -----")
+print(f"Simple Interest = {si:.2f}")
 print(f"Compound Interest = {ci:.2f}")
-print(f"Total Amount = {a:.2f}")
+print(f"Total Amount (SI) = {p + si:.2f}")
+print(f"Total Amount (CI) = {p + ci:.2f}")
